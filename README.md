@@ -1,1 +1,1 @@
-# bug-reporting-system
+# Bug Reporting System
