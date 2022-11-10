@@ -1,0 +1,32 @@
+<form [formGroup]="registerForm" [class.was-validated]="registerForm.invalid && registerForm.dirty">
+  <div [ngClass]="{ 'has-error': registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched }">
+    <label>First name: </label>
+    <input formControlName="firstName" />
+    <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched ">Field is required</div>
+  </div>
+  <div [ngClass]="{ 'has-error': registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched }">
+    <label>Last name: </label>
+    <input formControlName="lastName" />
+    <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched ">Field is required</div>
+  </div>
+  <div [ngClass]="{ 'has-error': registerForm.get('email')?.invalid && registerForm.get('email')?.touched }">
+    <label>email: </label>
+    <input formControlName="email" type="email"/>
+    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched ">Field is required</div>
+  </div>
+  <div [ngClass]="{ 'has-error': registerForm.get('password')?.invalid && registerForm.get('password')?.touched }">
+    <label>Password: </label>
+    <input type="password" formControlName="password" />
+    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched ">Field is required</div>
+  </div>
+  <div [ngClass]="{ 'has-error': registerForm.get('role')?.invalid && registerForm.get('role')?.touched }">
+    <label>Role: </label>
+    <input type="radio" formControlName="role" value="qa" /> Quality Assurance
+    <input type="radio" formControlName="role" value="po" /> Product Owner
+    <input type="radio" formControlName="role" value="dev" /> Developer
+    <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched ">Field is required</div>
+  </div>
+</form>
+
+<button (click)="register()">Register</button>
+<button routerLink="/login">Back to login</button>
