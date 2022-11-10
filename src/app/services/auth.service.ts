@@ -9,36 +9,47 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  // use a fake api from reqres
+  user: any;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-    constructor(private http: HttpClient, public router: Router) { }
+  constructor(private http: HttpClient, public router: Router) { }
 
-    register(data: any): Observable<any> {
-      const url = 'http://localhost:3000/register';
+  isQA() {
+    return this.user.role = 'qa';
+  }
 
-      return this.http.post<any>(url, data, this.httpOptions).pipe(
-        tap(result => this.saveToken(result)),
-        catchError(error => throwError(() => `Something went wrong: ${error.message}`))
-      );
-    }
+  isDEV() {
+    return this.user.role = 'dev';
+  }
+
+  isPO() {
+    return this.user.role = 'po';
+  }
+
+  register(data: any): Observable<any> {
+    const url = 'http://localhost:3000/register';
+
+    return this.http.post<any>(url, data, this.httpOptions).pipe(
+      tap(result => this.saveUser(result)),
+      catchError(error => throwError(() => `Something went wrong: ${error.message}`))
+    );
+  }
 
   login(data: any): Observable<any> {
     const url = 'http://localhost:3000/login';
 
     return this.http.post<any>(url, data, this.httpOptions).pipe(
-      tap(result => this.saveToken(result)),
+      tap(result => this.saveUser(result)),
       catchError(error => throwError(() => `Something went wrong: ${error.message}`))
     );
   }
 
-  // do not forget to open developer's tool and application tab
-  // to view the localstorage
-  private saveToken(data: any) {
-    localStorage.setItem('token', data.accessToken);
+  private saveUser(user: any) {
+    this.user = user;
+    localStorage.setItem('token', this.user.accessToken);
   }
 
 
