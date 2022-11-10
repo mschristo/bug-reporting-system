@@ -45,7 +45,6 @@ export class BugItemComponent implements OnInit {
     if (this.bugForm.valid) {
       this.bugService.addNewBug(this.prepareBug()).subscribe(
         response => {
-          console.log(response);
           this.router.navigateByUrl('home');
         }
       );

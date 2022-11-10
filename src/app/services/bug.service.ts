@@ -17,4 +17,8 @@ export class BugService {
   addNewBug(bug: Bug) {
     return this.http.post('http://localhost:3000/bugs', bug);
   }
+
+  deleteBug(id: number) {
+    return this.http.delete(`http://localhost:3000/bugs/${id}`);
+  }
 }

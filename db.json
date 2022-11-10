@@ -39,26 +39,6 @@
       "status": "For Review",
       "created": "2022-09-30T16:32:19.595Z",
       "comments": []
-    },
-    {
-      "title": "Asasa",
-      "description": "sa",
-      "priority": "1",
-      "reporter": "PO",
-      "status": "Rejected",
-      "created": "1668103736056",
-      "comments": [],
-      "id": "kTyHgGu"
-    },
-    {
-      "title": "asdsad",
-      "description": "asdasdasd",
-      "priority": 3,
-      "reporter": "PO",
-      "status": "Done",
-      "created": "1668103871901",
-      "comments": [],
-      "id": "767dq79"
     }
   ],
   "users": [

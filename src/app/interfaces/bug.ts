@@ -1,7 +1,7 @@
 import { BugComment } from "./bug-comment";
 
 export interface Bug {
-  id?: number,
+  id?: number | string,
   title: string,
   description: string,
   priority: number,
