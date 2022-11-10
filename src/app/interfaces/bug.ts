@@ -1,3 +1,5 @@
+import { BugComment } from "./bug-comment";
+
 export interface Bug {
   id: number,
   title: string,
@@ -6,5 +8,5 @@ export interface Bug {
   reporter: string,
   status: string,
   created: string,
-  comments: any[]
+  comments: BugComment[]
 }
