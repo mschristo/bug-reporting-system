@@ -1,32 +1,38 @@
 <form [formGroup]="registerForm" [class.was-validated]="registerForm.invalid && registerForm.dirty">
-  <div [ngClass]="{ 'has-error': registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched }">
-    <label>First name: </label>
-    <input formControlName="firstName" />
-    <div *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched ">Field is required</div>
-  </div>
-  <div [ngClass]="{ 'has-error': registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched }">
-    <label>Last name: </label>
-    <input formControlName="lastName" />
-    <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched ">Field is required</div>
-  </div>
-  <div [ngClass]="{ 'has-error': registerForm.get('email')?.invalid && registerForm.get('email')?.touched }">
-    <label>email: </label>
-    <input formControlName="email" type="email"/>
-    <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched ">Field is required</div>
-  </div>
-  <div [ngClass]="{ 'has-error': registerForm.get('password')?.invalid && registerForm.get('password')?.touched }">
-    <label>Password: </label>
-    <input type="password" formControlName="password" />
-    <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched ">Field is required</div>
-  </div>
-  <div [ngClass]="{ 'has-error': registerForm.get('role')?.invalid && registerForm.get('role')?.touched }">
-    <label>Role: </label>
-    <input type="radio" formControlName="role" value="qa" /> Quality Assurance
-    <input type="radio" formControlName="role" value="po" /> Product Owner
-    <input type="radio" formControlName="role" value="dev" /> Developer
-    <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched ">Field is required</div>
-  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>First name</mat-label>
+    <input matInput formControlName="firstName">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last name</mat-label>
+    <input matInput formControlName="lastName">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" type="password">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="role" >
+      <mat-option value="qa">Quality Assurance</mat-option>
+      <mat-option value="po">Product Owner</mat-option>
+      <mat-option value="dev">Developer</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
 </form>
 
-<button (click)="register()">Register</button>
-<button routerLink="/login">Back to login</button>
+<button mat-raised-button color="primary" (click)="register()">Register</button>
+<button mat-button routerLink="/login">Back to login</button>

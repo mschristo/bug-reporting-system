@@ -21,19 +21,21 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const loginData = {
-      email: this.loginForm.controls['email'].value,
-      password: this.loginForm.controls['password'].value
+    if (this.loginForm.valid) {
+      const loginData = {
+        email: this.loginForm.controls['email'].value,
+        password: this.loginForm.controls['password'].value
+      }
+      this.authService.login(loginData)
+      .subscribe({
+        next: result => {
+          if (result.accessToken) {
+            this.router.navigateByUrl('home');
+          }
+        },
+        error: error => alert(error)
+      }
+      );
     }
-    this.authService.login(loginData)
-    .subscribe({
-      next: result => {
-        if (result.accessToken) {
-          this.router.navigateByUrl('home');
-        }
-      },
-      error: error => alert(error)
-    }
-    );
   }
 }
