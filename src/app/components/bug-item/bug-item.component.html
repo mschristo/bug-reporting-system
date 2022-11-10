@@ -1,0 +1,47 @@
+<h1 *ngIf="isNew">Report a bug</h1>
+<h1 *ngIf="!isNew">Bug #{{ bug.id }}</h1>
+
+<form [formGroup]="bugForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Priority</mat-label>
+    <mat-select formControlName="priority" >
+      <mat-option value="1">Minor</mat-option>
+      <mat-option value="2">Major</mat-option>
+      <mat-option value="3">Critical</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Reporter</mat-label>
+    <mat-select formControlName="reporter">
+      <mat-option value="QA">Quality Assurance</mat-option>
+      <mat-option value="PO">Product Owner</mat-option>
+      <mat-option value="DEV">Developer</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="For Review">For Review</mat-option>
+      <mat-option value="Done">Done</mat-option>
+      <mat-option value="Rejected">Rejected</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<button mat-raised-button color="primary" (click)="save()">Save</button>

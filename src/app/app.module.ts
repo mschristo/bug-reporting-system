@@ -14,6 +14,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BugTableComponent } from './components/bug-table/bug-table.component';
+import { BugItemComponent } from './components/bug-item/bug-item.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { BugTableComponent } from './components/bug-table/bug-table.component';
     HomeComponent,
     RegisterComponent,
     PriorityLabelPipe,
-    BugTableComponent
+    BugTableComponent,
+    BugItemComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,9 @@ import { BugTableComponent } from './components/bug-table/bug-table.component';
     MatButtonModule,
     MatSortModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,4 +13,8 @@ export class BugService {
   getBugs(): Observable<Bug[]>{
     return this.http.get<Bug[]>('http://localhost:3000/bugs');
   }
+
+  addNewBug(bug: Bug) {
+    return this.http.post('http://localhost:3000/bugs', bug);
+  }
 }
